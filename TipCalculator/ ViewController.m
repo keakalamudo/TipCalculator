@@ -37,6 +37,9 @@
 
 - (IBAction)calculateTipButtonPressed:(id)sender {
     
+    
+    [sender resignFirstResponder]; 
+    
     double billDouble = [_billAmountTextField.text doubleValue];
     _bill =  (CGFloat) billDouble;
     NSLog(@"Bill: %f", billDouble);
@@ -60,6 +63,12 @@
     }
     
     
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
